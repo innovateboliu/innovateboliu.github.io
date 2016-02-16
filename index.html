@@ -21,6 +21,8 @@
 				font-size:40px;
       }
 			.slide:after {
+        top: auto;
+        bottom: 0;
         color: lightgrey;
       }
 			.slide ol,p {
@@ -31,8 +33,8 @@
       }
     </style>
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>Suan Pan</h1>
+		<p>OpenX Inc.</p>
 	</header>
 	<section class="slide" id="cover">
 		<h2>Suan Pan</h2>
@@ -61,20 +63,62 @@
 		</style>
 	</section>
 	<section class="slide bo" id="test">
-		<h2>Shower key features</h2>
+		<h2>Design</h2>
 		<ol>
-      <li>lala</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
+      <li>Fault Tolerant</li>
+      <li>High Available</li>
+			<li>Soft Real Time</li>
 		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
 	</section>
 	<section class="slide bo">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+		<h2>Compute Engine</h2>
+		<table>
+		<tr>
+			<th scope="col"></th>
+			<th scope="row" class="title">Spark</th>
+			<th scope="row" class="title">Storm</th>
+			<th scope="row" class="title">Flink</th>
+    </tr>
+		<tr>
+			<th class="title">Latency</th>
+			<td>Seconds</td>
+			<td>Sub-Second</td>
+			<td>Sub-Second</td>
+		</tr>
+		<tr>
+			<th class="title">Processing Model</th>
+			<td>Mini-Batch</td>
+			<td>Spout/Bolt</td>
+			<td>Spout/Bolt</td>
+		</tr>
+		<tr>
+			<th class="title">API Model</th>
+			<td>M/R</td>
+			<td>Spout/Bolt</td>
+			<td>M/R</td>
+		</tr>
+		<tr>
+			<th class="title">Version (by 6/2015)</th>
+			<td>1.3.1</td>
+			<td>0.10.0</td>
+			<td>0.9.0</td>
+		</tr>
+		<tr>
+			<th class="title">Delivery Semantics</th>
+			<td style="color:#00FF33">exactly-once</td>
+			<td style="color:#A00000">at-least-once</td>
+			<td style="color:#00FF33">exactly-once</td>
+		</tr>
+		</table>
+		<style>
+		  table {
+				color:white;
+				font-size:20px;
+				}
+      .title {
+        font-size:30px;
+      }
+		</style>
 	</section>
 	<section class="slide">
 		<h2>Two columns if you like</h2>
