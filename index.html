@@ -88,23 +88,40 @@
 	</section>
 	<section class="slide bo">
 		<h2>Real Time Counting Engine</h2>
-		<ol id="left">
-      <li>Receiving data</li>
-      <li>Aggregating counts</li>
+		<ol> 
+      <li>Receiving LWES events</li>
+      <li>Aggregating counts for keys</li>
 			<li>Storing result</li>
-		</ol>
-		<ol id="right">
+			<li>Batch/Ad-hoc range query</li>
       <li>Fault Tolerant</li>
       <li>High Available</li>
 			<li>Soft Real Time</li>
 		</ol>
+	</section>
+	<section class="slide bo">
+		<h2>Abucus</h2>
+    <ol id="left">Approach
+      <li class="next">Event listeners receive LWES events and parses them into k/v pairs, cache and flush them to relay servers</li>
+      <li class="next">Relay servers make increment call to Couchbase for each k/v pair</li>
+      <li class="next">Query servers convert range query to Couchbase get operations</li>
+		</ol>
+    <ol id="right" class="next">Problems
+      <li class="next">Event listener boxes down</li>
+      <li class="next">Relay server boxes down</li>
+      <li class="next">Couchbase nodes down</li>
+		</ol>
     <style>
       #left {
         float:left;
+        width: 45%;  
+      }
+      #left li {
+        line-height: normal;
+        margin-bottom: 1em;
       }
       #right {
         float:right;
-          margin:0 20% 0;
+        width: 45%;  
       }
     </style>
 	</section>
