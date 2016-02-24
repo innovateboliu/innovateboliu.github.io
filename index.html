@@ -108,7 +108,12 @@
     <ol id="right" class="next">Problems
       <li class="next">Event listener boxes down</li>
       <li class="next">Relay server boxes down</li>
-      <li class="next">Couchbase nodes down</li>
+      <li class="next">Couchbase nodes down
+        <ul>
+          <li class="next">Couchbase is High Available</li>
+          <li class="next">How about Fault-tolerance?</li>
+        </ul>    
+      </li>
 		</ol>
     <style>
       #left {
@@ -125,6 +130,55 @@
       }
     </style>
 	</section>
+	<section class="slide bo">
+		<h2>HA vs FT</h2>
+    <ol>
+      <li>High Available
+        <ul>
+          <li>Most commercial distributed systems provide HA</li>
+        </ul>  
+      </li>
+      <li>Fault Tolerance
+        <ul>
+          <li>HA system underneath</li>
+          <li>Re-execute computation</li>
+          <li>Reasonable design</li>
+        </ul>  
+      </li>
+		</ol>
+  </section>
+	<section class="slide bo">
+		<h2>Fault Tolerance Semantics</h2>
+		<ol>
+      <li>At Most Once</li>
+			<li>At Least Once</li>
+      <li>Exactly Once</li>
+		</ol>
+	</section>
+	<section class="slide bo">
+		<h2>Suanpan</h2>
+    <img id="a" src="https://docs.google.com/a/openx.com/drawings/d/1on6GTOgZzpeydZNm335TKSQxrxfoHPw3Un_EpdcPpKc/pub?w=1383&amp;h=1595">
+    <style>
+      #a {
+        height: 75%;  
+        margin-left: 30%;
+      }
+    </style>
+	</section>
+	<section class="slide no-padding">
+    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1OHhGF6xJRuZIz8ptNpoqhSANW1py9yNCpLR-KlrvZ_U/pub?w=952&amp;h=1556">
+    <style>
+      #b {
+        height: 100%;  
+        margin-left: 30%;
+      }
+    </style>
+	</section>
+    <style>
+      .no-padding {
+        padding: 0 0 0
+      }
+    </style>
 	<section class="slide bo">
 		<h2>Compute Engine</h2>
 		<table>
@@ -177,14 +231,6 @@
 	</section>
 	<section class="slide">
 		<h2 class="shout shrink">Exactly once is important</h2>
-	</section>
-	<section class="slide bo">
-		<h2>Fault Tolerance Semantics</h2>
-		<ol>
-      <li>At Most Once</li>
-			<li>At Least Once</li>
-      <li>Exactly-Once</li>
-		</ol>
 	</section>
 	<section class="slide bo">
 		<h2>Exactly-Once Computation Pipeline</h2>
