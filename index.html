@@ -155,22 +155,29 @@
       <li>Exactly Once</li>
 		</ol>
 	</section>
+	<section class="slide">
+		<h2 class="shout shrink">Exactly once is important</h2>
+	</section>
 	<section class="slide bo">
-		<h2>Suanpan</h2>
+		<h2>Exactly-Once Computation Pipeline</h2>
     <img id="a" src="https://docs.google.com/a/openx.com/drawings/d/1on6GTOgZzpeydZNm335TKSQxrxfoHPw3Un_EpdcPpKc/pub?w=1383&amp;h=1595">
     <style>
       #a {
         height: 75%;  
-        margin-left: 30%;
+        margin-left: 25%;
       }
     </style>
 	</section>
-	<section class="slide no-padding">
-    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1OHhGF6xJRuZIz8ptNpoqhSANW1py9yNCpLR-KlrvZ_U/pub?w=952&amp;h=1556">
+	<section class="slide bo">
+		<img src="pictures/ft.png" alt="" class="cover">
+	</section>
+	<section class="slide">
+		<h2>Suanpan</h2>
+    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1mSzyTpSxes01sAORw1jeteR8kyNd2JPbVjfVbj8PXxI/pub?w=859&amp;h=878">
     <style>
       #b {
-        height: 100%;  
-        margin-left: 30%;
+        height: 75%;  
+        margin-left: 25%;
       }
     </style>
 	</section>
@@ -229,35 +236,16 @@
       }
 		</style>
 	</section>
-	<section class="slide">
-		<h2 class="shout shrink">Exactly once is important</h2>
-	</section>
-	<section class="slide bo">
-		<h2>Exactly-Once Computation Pipeline</h2>
-		<ol>
-      <li class="next">Receiving the data
-        <ul>
-          <li class="next">Kafka</li>
-        </ul>  
-      </li>
-			<li class="next">Transforming the data
-        <ul>
-          <li class="next">Spark Streaming</li>
-        </ul>  
-      </li>
-      <li class="next">Pushing out the data
-        <ul>
-          <li class="next">Riak</li>
-        </ul>  
-      </li>
-		</ol>
-	</section>
 	<section class="slide bo">
 		<h2>How Spark Streaming Works</h2>
 		<ol>
-      <li></li>
-			<li></li>
-      <li></li>
+      <li>Chops up data streams into batches of few secs</li>
+			<li>Treats each batch of data as RDDs and processes them using RDD operations
+        <ul>
+            <li>RDD is a read-only, partitioned collection of records. RDDs can only be created through deterministic operations</li>
+        </ul>
+      </li>
+      <li>Processed results are pushed out in batches</li>
 		</ol>
 	</section>
 	<section class="slide">
