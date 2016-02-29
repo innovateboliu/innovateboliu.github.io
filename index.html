@@ -198,6 +198,7 @@
 	<section class="slide bo">
 		<img src="pictures/ft.png" alt="" class="cover">
 	</section>
+
 	<section class="slide">
 		<h2>Suanpan</h2>
     <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1mSzyTpSxes01sAORw1jeteR8kyNd2JPbVjfVbj8PXxI/pub?w=859&amp;h=878">
@@ -208,6 +209,18 @@
       }
     </style>
 	</section>
+
+	<section class="slide">
+		<h2>Suanpan</h2>
+    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1mSzyTpSxes01sAORw1jeteR8kyNd2JPbVjfVbj8PXxI/pub?w=859&amp;h=878">
+    <style>
+      #b {
+        height: 75%;  
+        margin-left: 25%;
+      }
+    </style>
+	</section>
+
     <style>
       .no-padding {
         padding: 0 0 0
@@ -266,15 +279,42 @@
 
 	<section class="slide bo">
 		<h2>How Spark Streaming Works</h2>
-		<ol>
-      <li>Chops up data streams into batches of few secs</li>
-			<li>Treats each batch of data as RDDs and processes them using RDD operations
-        <ul>
-            <li>RDD is a read-only, partitioned collection of records. RDDs can only be created through deterministic operations</li>
-        </ul>
-      </li>
-      <li>Processed results are pushed out in batches</li>
-		</ol>
+    <img id="e" src="pictures/streaming-flow.png">
+    <img id="f" src="pictures/stream-detail.png">
+		<p id="g">http://spark.apache.org/docs/latest/streaming-programming-guide.html
+		https://dzone.com/refcardz/apache-spark</p>
+    <style>
+      #e {
+        width: 75%;  
+          background-color:white;
+      }
+      #f {
+        height: 50%;  
+      }
+      #g {
+        float: right;  
+        width: 40%;
+          font-size:10px;
+      }
+    </style>
+	</section>
+
+	<section class="slide bo">
+		<h2>How Spark Streaming Works</h2>
+    <img id="h" src="pictures/spark-workflow.png">
+    <img id="i" src="pictures/rdd_dependency.png">
+		<p id="g">http://subprotocol.com/system/spark-darling-of-big-data.html
+		https://dzone.com/refcardz/apache-spark</p>
+    <style>
+      #h {
+        width: 48%;  
+          background-color:white;
+      }
+      #i {
+        width: 48%;  
+          float:right;
+      }
+    </style>
 	</section>
 
 	<section class="slide">
