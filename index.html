@@ -169,6 +169,33 @@
     </style>
 	</section>
 	<section class="slide bo">
+		<h2>Exactly Onece - Receiving Data</h2>
+		<ol>
+      <li>Kafka
+        <ul>
+          <li>High level consumer API</li>
+          <li>Simple consumer API</li>
+        </ul>  
+      </li>
+      <li>Spark Streaming
+        <ul>
+          <li>Kafka high level API + WAL</li>
+          <li>Kafka simple API + checkpoint</li>
+        </ul>  
+      </li>
+		</ol>
+	</section>
+	<section class="slide bo">
+		<h2>Exactly Onece - Pushing Result</h2>
+		<ol>
+      <li>Spark Streaming output operations have at least once semantics
+      <li>Idempotent updates
+      </li>
+      <li>Transactional updates
+      </li>
+		</ol>
+	</section>
+	<section class="slide bo">
 		<img src="pictures/ft.png" alt="" class="cover">
 	</section>
 	<section class="slide">
@@ -236,6 +263,7 @@
       }
 		</style>
 	</section>
+
 	<section class="slide bo">
 		<h2>How Spark Streaming Works</h2>
 		<ol>
@@ -248,6 +276,21 @@
       <li>Processed results are pushed out in batches</li>
 		</ol>
 	</section>
+
+	<section class="slide">
+		<h2>Spark Kafka Partitions</h2>
+    <img id="c" src="Pictures/kafka-spark-en.png">
+		<p id="d">From http://blog.octo.com/en/gather-shopping-receipts-architecture-overview/</p>
+    <style>
+      #c {
+        height: 75%;  
+      }
+      #d {
+        font-size:10px;
+      }
+    </style>
+	</section>
+
 	<section class="slide">
 		<h2>Serious citations</h2>
 		<figure>
