@@ -25,10 +25,13 @@
         bottom: 0;
         color: lightgrey;
       }
-			.slide ol,p {
+			.slide ol,p,ul {
         color: white;
       }
       .slide ol>li:before {
+        color: lightgrey;
+      }
+      .slide ul>li:before {
         color: lightgrey;
       }
     </style>
@@ -66,7 +69,7 @@
 		<h2>Our Story</h2>
     <p class="next">We need to count number</p>
     <p class="next" style="color:#00FF33">Grid</p>
-    <p class="next" style="color:#CCFF66">Real time counting engine</p>
+    <p class="next" style="color:yellow">Real time?</p>
 		<style>
 			#story h2 {
 				margin:30px 0 50px;
@@ -105,7 +108,7 @@
       <li class="next">Relay servers make increment call to Couchbase for each k/v pair</li>
       <li class="next">Query servers convert range query to Couchbase get operations</li>
 		</ol>
-    <ol id="right" class="next">Problems
+    <ol id="right" class="next">Issues
       <li class="next">Event listener boxes down</li>
       <li class="next">Relay server boxes down</li>
       <li class="next">Couchbase nodes down
@@ -211,14 +214,18 @@
 	</section>
 
 	<section class="slide">
-		<h2>Suanpan</h2>
-    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1mSzyTpSxes01sAORw1jeteR8kyNd2JPbVjfVbj8PXxI/pub?w=859&amp;h=878">
-    <style>
-      #b {
-        height: 75%;  
-        margin-left: 25%;
-      }
-    </style>
+		<h2>Suanpan Workflow</h2>
+		<ol>
+      <li>Receiving LWES events</li>
+			<li>Sending filtered events to Kafka</li>
+      <li>Aggregating in Spark
+        <ul>
+          <li>High level consumer API</li>
+          <li>Simple consumer API</li>
+        </ul>  
+      </li>
+			<li>Pushing results to Riak</li>
+		</ol>
 	</section>
 
     <style>
@@ -332,111 +339,131 @@
 	</section>
 
 	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</section>
-	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <mark class="comment">&lt;!--Comment--&gt;</mark></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
-		</pre>
-	</section>
-	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<img src="pictures/picture.jpg" alt="" class="cover">
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
-	</section>
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</section>
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-	<section class="slide">
-		<h2>All kind of lists</h2>
+    <section class="no-padding" id="bo">
+		<h2>Functional Programming</h2>
 		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
+      <li>No side effects</li>
+      <li>First class function</li>
+			<li>Lazy evaluation</li>
 		</ol>
+    </section>
+    <section class="no-padding" id="liu">
+		<h2>Suanpan</h2>
+		<ol>
+      <li>Exactly once / Idempotent / FT</li>
+      <li>M/R</li>
+			<li>Stream processing</li>
+		</ol>
+    </section>
+    <style>
+      #bo {
+        float:left;
+        width:60%;
+          font-size:20px;
+      }
+      #bo h2 {
+        font-size:40px;
+      }
+      #liu {
+        float:right;
+        width:40%;
+          font-size:20px;
+      }
+      #liu h2 {
+        font-size:40px;
+      }
+    </style>
 	</section>
-	<p class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
-	</p>
+
+  <section class="slide">
+		<h2>Personal feelings</h2>
+		<ul>
+      <li>Scala
+        <ul>
+          <li>Full fledged functional programming</li>
+          <li>Expressive but concise syntax</li>
+          <li>Static type checking which feels dynamic</li>
+          <li>Seamless integration with Java</li>
+          <li>OO?</li>
+          <li>Option?</li>
+        </ul>  
+      </li>
+		</ul>
+  </section>
+
+  <section class="slide">
+		<h2>Personal feelings</h2>
+    <pre>
+      <code>val keyCounts =</code>
+      <code>  <mark>stream</mark></code>
+      <code>  <mark>.flatMap</mark> {eventToKeyCounts(_)}</code>
+      <code>  <mark>.reduceByKey</mark> {(x, y) => x + y, new SimplePartitioner(parN)}</code>
+      <code>  <mark>.map</mark> { case ((partition, key), cnt) => (key, cnt) }</code>
+      <code>  <mark>.updateStateByKey</mark> {updateCallback _, new SimplePartitioner(parN)}</code>
+      <code>  <mark class="comment">// mapWithState - faster state updating API since Spark 1.6</mark></code>
+      <code>  </code>
+      <code>keyCounts <mark>.foreachRDD</mark> { (rdd: RDD[(Key, Cnt)], time: Time) =></code>
+      <code>  rdd <mark>.foreachPartition</mark> { partition => pushToRiak(partition) }</code>
+      <code>}</code>
+    </pre>
+    <style>
+      code {
+        color: white;
+          font-size:16px;
+      }
+    </style>
+  </section>
+
+  <section class="slide">
+		<h2>Personal feelings</h2>
+		<ul>
+      <li>Erlang
+        <ul>
+          <li>OTP rocks!</li>
+          <li>Transparent runtime</li>
+          <li>Go to language and framework for backend development</li>
+            <ul>
+              <li>Service - Erlang/Elixir/OTP</li>
+              <li>Web - Elixir/Phoenix</li>
+              <li><span style='color:red;text-decoration:line-through'><span style='color:lightgrey'>JVM, RoR, ...</span></span></li>
+            </ul>  
+        </ul>  
+      </li>
+		</ul>
+    <style>
+      #x {
+        text-decoration: line-through;
+      }
+    </style>
+  </section>
+
+  <section class="slide">
+		<h2>Personal feelings</h2>
+		<ul>
+      <li>Spark Streaming
+        <ul>
+          <li>Stream processing model</li>
+          <li>Faut tolerance model</li>
+          <li>API</li>
+          <li>Active community</li>
+        </ul>  
+      </li>
+		</ul>
+  </section>
+
+  <section class="slide">
+		<h2>Personal feelings</h2>
+		<ul>
+      <li>Riak
+        <ul>
+          <li>AP system</li>
+          <li>Backends</li>
+          <li>Riak core</li>
+        </ul>  
+      </li>
+		</ul>
+  </section>
+
 	<!--
 		To hide progress bar from entire presentation
 		just remove “progress” element.
