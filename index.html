@@ -171,6 +171,18 @@
       }
     </style>
 	</section>
+
+	<section class="slide">
+		<h2>Suanpan</h2>
+    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1mSzyTpSxes01sAORw1jeteR8kyNd2JPbVjfVbj8PXxI/pub?w=859&amp;h=878">
+    <style>
+      #b {
+        height: 75%;  
+        margin-left: 25%;
+      }
+    </style>
+	</section>
+
 	<section class="slide bo">
 		<h2>Exactly Onece - Receiving Data</h2>
 		<ol>
@@ -211,26 +223,10 @@
 	</section>
 
 	<section class="slide">
-		<h2>Suanpan</h2>
-    <img id="b" src="https://docs.google.com/a/openx.com/drawings/d/1mSzyTpSxes01sAORw1jeteR8kyNd2JPbVjfVbj8PXxI/pub?w=859&amp;h=878">
-    <style>
-      #b {
-        height: 75%;  
-        margin-left: 25%;
-      }
-    </style>
-	</section>
-
-	<section class="slide">
 		<h2>Suanpan Workflow</h2>
 		<ol>
-      <li>Receiving LWES events</li>
-			<li>Sending filtered events to Kafka</li>
-      <li>Aggregating in Spark
-        <ul>
-          <li>High level consumer API</li>
-          <li>Simple consumer API</li>
-        </ul>  
+      <li>Receiving LWES events and sending filtered ones to Kafka</li>
+      <li>Aggregating in Spark streaming
       </li>
 			<li>Pushing results to Riak</li>
 		</ol>
@@ -383,8 +379,23 @@
     </style>
 	</section>
 
+	<section class="slide">
+		<h2>Road Map</h2>
+		<ol style="width:50%;float:left">
+      <li>HOX/OTE - PROD 1/20/16</li>
+      <li>TargetCPM - PROD 1/20/16</li>
+			<li>RTG - turned on in PROD 2/23/16</li>
+			<li>NTR - QA</li>
+			<li>Realtime revenue monitoring - DEV</li>
+			<li>Bidder Monitoring - design</li>
+		</ol>
+    <ol style="float:right;width:40%">
+      <li>Retiring Abacus by end of Q1</li>
+    </ol>
+  </section>
+
   <section class="slide">
-		<h2>Personal feelings</h2>
+		<h2>Lessons learned</h2>
 		<ul>
       <li>Scala
         <ul>
@@ -400,7 +411,7 @@
   </section>
 
   <section class="slide">
-		<h2>Personal feelings</h2>
+		<h2>Lessons learned</h2>
     <pre>
       <code>val keyCounts =</code>
       <code>  <mark>stream</mark></code>
@@ -423,7 +434,7 @@
   </section>
 
   <section class="slide">
-		<h2>Personal feelings</h2>
+		<h2>Lessons learned</h2>
 		<ul>
       <li>Erlang
         <ul>
@@ -446,7 +457,7 @@
   </section>
 
   <section class="slide">
-		<h2>Personal feelings</h2>
+		<h2>Lessons learned</h2>
 		<ul>
       <li>Spark Streaming
         <ul>
@@ -460,7 +471,7 @@
   </section>
 
   <section class="slide">
-		<h2>Personal feelings</h2>
+		<h2>Lessons learned</h2>
 		<ul>
       <li>Riak
         <ul>
@@ -471,6 +482,17 @@
       </li>
 		</ul>
   </section>
+	<section class="slide" id="y">
+		<h2>Q & A</h2>
+<style> 
+			#y h2 {
+				margin:30px 0 0;
+				color:lightgrey;
+				text-align:center;
+				font-size:70px;
+				}
+</style> 
+	</section>
 
 	<!--
 		To hide progress bar from entire presentation
