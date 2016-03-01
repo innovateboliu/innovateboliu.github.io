@@ -93,28 +93,29 @@
 		<h2>Real Time Counting Engine</h2>
 		<ol> 
       <li>Receiving LWES events</li>
-      <li>Aggregating counts for keys</li>
+      <li>Parse events to key count pairs</li>
+      <li>Aggregating counts</li>
 			<li>Storing result</li>
-			<li>Batch/Ad-hoc range query</li>
-      <li>Fault Tolerant</li>
+			<li>Batch/Ad-hoc time range query</li>
       <li>High Available</li>
+      <li>Fault Tolerant</li>
 			<li>Soft Real Time</li>
 		</ol>
 	</section>
 	<section class="slide bo">
 		<h2>Abucus</h2>
     <ol id="left">Approach
-      <li class="next">Event listeners receive LWES events and parses them into k/v pairs, cache and flush them to relay servers</li>
-      <li class="next">Relay servers make increment call to Couchbase for each k/v pair</li>
-      <li class="next">Query servers convert range query to Couchbase get operations</li>
+      <li>Event listeners receive LWES events and parses them into k/v pairs, cache and flush them to relay servers</li>
+      <li>Relay servers calls Membase/Couchbase to increment count for keys</li>
+      <li>Query servers convert range query to Couchbase get operations</li>
 		</ol>
     <ol id="right" class="next">Issues
-      <li class="next">Event listener boxes down</li>
-      <li class="next">Relay server boxes down</li>
-      <li class="next">Couchbase nodes down
+      <li>Event listener boxes down</li>
+      <li>Relay server boxes down</li>
+      <li>Couchbase nodes down
         <ul>
-          <li class="next">Couchbase is High Available</li>
-          <li class="next">How about Fault-tolerance?</li>
+          <li>Couchbase is High Available</li>
+          <li>How about Fault-tolerance?</li>
         </ul>    
       </li>
 		</ol>
@@ -215,9 +216,12 @@
 		<h2>Exactly Onece - Pushing Result</h2>
 		<ol>
       <li>Spark Streaming output operations have at least once semantics
-      <li>Idempotent updates
-      </li>
-      <li>Transactional updates
+        <ul>
+          <li>Idempotent updates
+          </li>
+          <li>Transactional updates
+          </li>
+        </ul>
       </li>
 		</ol>
 	</section>
@@ -229,6 +233,7 @@
       <li>Aggregating in Spark streaming
       </li>
 			<li>Pushing results to Riak</li>
+			<li>Serving time range query by using Erlang service</li>
 		</ol>
 	</section>
 
@@ -238,61 +243,10 @@
       }
     </style>
 	<section class="slide bo">
-		<h2>Compute Engine</h2>
-		<table>
-		<tr>
-			<th scope="col"></th>
-			<th scope="row" class="title">Spark</th>
-			<th scope="row" class="title">Storm</th>
-			<th scope="row" class="title">Flink</th>
-    </tr>
-		<tr>
-			<th class="title">Latency</th>
-			<td>Seconds</td>
-			<td>Sub-Second</td>
-			<td>Sub-Second</td>
-		</tr>
-		<tr>
-			<th class="title">Processing Model</th>
-			<td>Mini-Batch</td>
-			<td>Spout/Bolt</td>
-			<td>Spout/Bolt</td>
-		</tr>
-		<tr>
-			<th class="title">API Model</th>
-			<td>M/R</td>
-			<td>Spout/Bolt</td>
-			<td>M/R</td>
-		</tr>
-		<tr>
-			<th class="title">Version (by 6/2015)</th>
-			<td>1.3.1</td>
-			<td>0.10.0</td>
-			<td>0.9.0</td>
-		</tr>
-		<tr>
-			<th class="title">Fault-tolerance Semantics</th>
-			<td style="color:#00FF33">exactly-once</td>
-			<td style="color:#A00000">at-least-once</td>
-			<td style="color:#00FF33">exactly-once</td>
-		</tr>
-		</table>
-		<style>
-		  table {
-				color:white;
-				font-size:20px;
-				}
-      .title {
-        font-size:25px;
-      }
-		</style>
-	</section>
-
-	<section class="slide bo">
 		<h2>How Spark Streaming Works</h2>
     <img id="e" src="pictures/streaming-flow.png">
-    <img id="f" src="pictures/stream-detail.png">
-		<p id="g">http://spark.apache.org/docs/latest/streaming-programming-guide.html
+    <img class="next" id="f" src="pictures/stream-detail.png">
+		<p class="next" id="g">http://spark.apache.org/docs/latest/streaming-programming-guide.html
 		https://dzone.com/refcardz/apache-spark</p>
     <style>
       #e {
@@ -313,8 +267,8 @@
 	<section class="slide bo">
 		<h2>How Spark Streaming Works</h2>
     <img id="h" src="pictures/spark-workflow.png">
-    <img id="i" src="pictures/rdd_dependency.png">
-		<p id="g">http://subprotocol.com/system/spark-darling-of-big-data.html
+    <img class="next"  id="i" src="pictures/rdd_dependency.png">
+		<p class="next"  id="g">http://subprotocol.com/system/spark-darling-of-big-data.html
 		https://dzone.com/refcardz/apache-spark</p>
     <style>
       #h {
@@ -329,7 +283,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>Spark Kafka Partitions</h2>
+		<h2>Spark Streaming Parallelism</h2>
     <img id="c" src="pictures/kafka-spark-en.png">
 		<p id="d">From http://blog.octo.com/en/gather-shopping-receipts-architecture-overview/</p>
     <style>
@@ -341,6 +295,11 @@
       }
     </style>
 	</section>
+
+	<section class="slide">
+		<h2>Suanpan Clusters</h2>
+    <img style="height:80%" src="https://docs.google.com/a/openx.com/drawings/d/1yDVoJ6GJTCpb-2Sz-eVPBfEOE72vx-QPXJcYl5B0XmI/pub?w=695&amp;h=707">
+  </section>
 
 	<section class="slide">
     <section class="no-padding" id="bo">
@@ -386,11 +345,11 @@
       <li>TargetCPM - PROD 1/20/16</li>
 			<li>RTG - turned on in PROD 2/23/16</li>
 			<li>NTR - QA</li>
-			<li>Realtime revenue monitoring - DEV</li>
+			<li>RTRM- DEV</li>
 			<li>Bidder Monitoring - design</li>
 		</ol>
     <ol style="float:right;width:40%">
-      <li>Retiring Abacus by end of Q1</li>
+      <li class="next" >Retiring Abacus by end of Q1</li>
     </ol>
   </section>
 
@@ -482,6 +441,14 @@
       </li>
 		</ul>
   </section>
+  <section class="slide">
+		<h2>Special Thanks!!!</h2>
+		<ul>
+      <li>Tech Council</li>
+      <li>Core exchange team</li>
+      <li style="color:lightgreen">SRE</li>
+		</ul>
+  </section>
 	<section class="slide" id="y">
 		<h2>Q & A</h2>
 <style> 
@@ -492,6 +459,57 @@
 				font-size:70px;
 				}
 </style> 
+	</section>
+
+	<section class="slide bo">
+		<h2>Compute Engine</h2>
+		<table>
+		<tr>
+			<th scope="col"></th>
+			<th scope="row" class="title">Spark</th>
+			<th scope="row" class="title">Storm</th>
+			<th scope="row" class="title">Flink</th>
+    </tr>
+		<tr>
+			<th class="title">Latency</th>
+			<td>Seconds</td>
+			<td>Sub-Second</td>
+			<td>Sub-Second</td>
+		</tr>
+		<tr>
+			<th class="title">Processing Model</th>
+			<td>Mini-Batch</td>
+			<td>Spout/Bolt</td>
+			<td>Spout/Bolt</td>
+		</tr>
+		<tr>
+			<th class="title">API Model</th>
+			<td>M/R</td>
+			<td>Spout/Bolt</td>
+			<td>M/R</td>
+		</tr>
+		<tr>
+			<th class="title">Version (by 6/2015)</th>
+			<td>1.3.1</td>
+			<td>0.10.0</td>
+			<td>0.9.0</td>
+		</tr>
+		<tr>
+			<th class="title">Fault-tolerance Semantics</th>
+			<td style="color:#00FF33">exactly-once</td>
+			<td style="color:#A00000">at-least-once</td>
+			<td style="color:#00FF33">exactly-once</td>
+		</tr>
+		</table>
+		<style>
+		  table {
+				color:white;
+				font-size:20px;
+				}
+      .title {
+        font-size:25px;
+      }
+		</style>
 	</section>
 
 	<!--
