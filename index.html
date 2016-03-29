@@ -106,7 +106,7 @@
 		<h2>Abacus</h2>
     <ol id="left">Approach
       <li>Event listeners receive LWES events and parses them into key/count pairs, cache and flush them to relay servers</li>
-      <li>Relay servers call Membase/Couchbase to increment counts</li>
+      <li>Relay servers call Couchbase to increment counts</li>
       <li>Query servers convert range query to Couchbase get operations</li>
 		</ol>
     <ol id="right" class="next">Issues
@@ -206,12 +206,12 @@
 	</section>
 
 	<section class="slide bo">
-		<h2>Exactly Onece - Processing Data</h2>
+		<h2>Exactly Onece - Processing Stream</h2>
 		<img src="pictures/ft.png" style="height:70%">
 	</section>
 
 	<section class="slide bo">
-		<h2>Exactly Onece - Processing Data</h2>
+		<h2>Exactly Onece - Processing Stream</h2>
     <img style="width:100%" src="https://docs.google.com/a/openx.com/drawings/d/1Pu42APwg8B1jzWrielROhn6O6PUmgjs5C_d9Keg_YaA/pub?w=1541&amp;h=1068">
 	</section>
 
@@ -294,6 +294,22 @@
   </section>
 
 	<section class="slide">
+		<h2>Road Map</h2>
+		<ol style="width:50%;float:left">
+      <li>HOX/OTE - PROD 1/20/16</li>
+      <li>TargetCPM - PROD 1/20/16</li>
+			<li>RTG - turned on in PROD 2/23/16</li>
+			<li>NTR - QA</li>
+			<li>RTRM- DEV</li>
+			<li>Bidder Monitoring - design</li>
+		</ol>
+    <ol style="float:right;width:40%">
+      <li class="next" >Retiring Abacus by end of Q1</li>
+    </ol>
+  </section>
+
+
+	<section class="slide">
     <section class="no-padding" id="bo">
 		<h2>Functional Programming</h2>
 		<ol>
@@ -330,27 +346,12 @@
     </style>
 	</section>
 
-	<section class="slide">
-		<h2>Road Map</h2>
-		<ol style="width:50%;float:left">
-      <li>HOX/OTE - PROD 1/20/16</li>
-      <li>TargetCPM - PROD 1/20/16</li>
-			<li>RTG - turned on in PROD 2/23/16</li>
-			<li>NTR - QA</li>
-			<li>RTRM- DEV</li>
-			<li>Bidder Monitoring - design</li>
-		</ol>
-    <ol style="float:right;width:40%">
-      <li class="next" >Retiring Abacus by end of Q1</li>
-    </ol>
-  </section>
-
   <section class="slide">
 		<h2>Lessons learned</h2>
 		<ul>
       <li>Scala
         <ul>
-          <li>Full fledged functional programming</li>
+          <li>Full fledged functional programming language</li>
           <li>Expressive but concise syntax</li>
           <li>Static type checking which feels dynamic</li>
           <li>Seamless integration with Java</li>
