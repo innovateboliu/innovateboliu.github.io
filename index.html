@@ -103,10 +103,10 @@
 		</ol>
 	</section>
 	<section class="slide bo">
-		<h2>Abucus</h2>
+		<h2>Abacus</h2>
     <ol id="left">Approach
-      <li>Event listeners receive LWES events and parses them into k/v pairs, cache and flush them to relay servers</li>
-      <li>Relay servers calls Membase/Couchbase to increment count for keys</li>
+      <li>Event listeners receive LWES events and parses them into key/count pairs, cache and flush them to relay servers</li>
+      <li>Relay servers call Membase/Couchbase to increment counts</li>
       <li>Query servers convert range query to Couchbase get operations</li>
 		</ol>
     <ol id="right" class="next">Issues
@@ -115,7 +115,7 @@
       <li>Couchbase nodes down
         <ul>
           <li>Couchbase is High Available</li>
-          <li>How about Fault-tolerance?</li>
+          <li>But it's not Fault Tolerant</li>
         </ul>    
       </li>
 		</ol>
@@ -137,16 +137,18 @@
 	<section class="slide bo">
 		<h2>HA vs FT</h2>
     <ol>
-      <li>High Available
+      <li>High Availablity
         <ul>
-          <li>Most commercial distributed systems provide HA</li>
+          <li class="next">System is continuously operational for a desirabaly long length of time</li>
+          <li class="next">Avoiding failure and downtime</li>
         </ul>  
       </li>
-      <li>Fault Tolerance
+      <li class="next">Fault Tolerance
         <ul>
-          <li>HA system underneath</li>
-          <li>Re-execute computation</li>
-          <li>Reasonable design</li>
+          <li class="next">System can recover from failure</li>
+          <li class="next">HA system underneath</li>
+          <li class="next">Re-execute computation</li>
+          <li class="next">Reasonable design</li>
         </ul>  
       </li>
 		</ol>
@@ -158,12 +160,13 @@
 			<li>At Least Once</li>
       <li>Exactly Once</li>
 		</ol>
+		<p>Example: Incremental counting problem</p>
 	</section>
 	<section class="slide">
 		<h2 class="shout shrink">Exactly once is important</h2>
 	</section>
 	<section class="slide bo">
-		<h2>Exactly Once Computation Pipeline</h2>
+		<h2>Exactly Once Counting System</h2>
     <img id="a" src="https://docs.google.com/a/openx.com/drawings/d/1on6GTOgZzpeydZNm335TKSQxrxfoHPw3Un_EpdcPpKc/pub?w=1383&amp;h=1595">
     <style>
       #a {
@@ -213,7 +216,7 @@
 	</section>
 
 	<section class="slide bo">
-		<h2>Exactly Onece - Pushing Result</h2>
+		<h2>Exactly Onece - Updating Result</h2>
 		<ol>
       <li>Spark Streaming output operations have at least once semantics
         <ul>
@@ -226,24 +229,13 @@
 		</ol>
 	</section>
 
-	<section class="slide">
-		<h2>Suanpan Workflow</h2>
-		<ol>
-      <li>Receiving LWES events and sending filtered ones to Kafka</li>
-      <li>Aggregating in Spark streaming
-      </li>
-			<li>Pushing results to Riak</li>
-			<li>Serving time range query by using Erlang service</li>
-		</ol>
-	</section>
-
     <style>
       .no-padding {
         padding: 0 0 0
       }
     </style>
 	<section class="slide bo">
-		<h2>How Spark Streaming Works</h2>
+		<h2>How Spark Streaming Works - Representation</h2>
     <img id="e" src="pictures/streaming-flow.png">
     <img class="next" id="f" src="pictures/stream-detail.png">
 		<p class="next" id="g">http://spark.apache.org/docs/latest/streaming-programming-guide.html
@@ -265,7 +257,7 @@
 	</section>
 
 	<section class="slide bo">
-		<h2>How Spark Streaming Works</h2>
+		<h2>How Spark Streaming Works - Scheduling</h2>
     <img id="h" src="pictures/spark-workflow.png">
     <img class="next"  id="i" src="pictures/rdd_dependency.png">
 		<p class="next"  id="g">http://subprotocol.com/system/spark-darling-of-big-data.html
@@ -283,7 +275,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>Spark Streaming Parallelism</h2>
+		<h2>How Spark Streaming Works - Parallelism</h2>
     <img id="c" src="pictures/kafka-spark-en.png">
 		<p id="d">From http://blog.octo.com/en/gather-shopping-receipts-architecture-overview/</p>
     <style>
